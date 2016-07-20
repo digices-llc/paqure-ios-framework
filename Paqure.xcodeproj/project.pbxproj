@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C4411971D3F440500783E14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4411961D3F440500783E14 /* UIKit.framework */; };
+		5C4411991D3F440C00783E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4411981D3F440B00783E14 /* Foundation.framework */; };
 		5C903B811D3F3CF200AEA171 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C903B801D3F3CF200AEA171 /* AppDelegate.swift */; };
 		5C903B861D3F3CF200AEA171 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C903B841D3F3CF200AEA171 /* Main.storyboard */; };
 		5C903B881D3F3CF200AEA171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C903B871D3F3CF200AEA171 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C4411961D3F440500783E14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5C4411981D3F440B00783E14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5C903B7D1D3F3CF200AEA171 /* Paqure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paqure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C903B801D3F3CF200AEA171 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C903B851D3F3CF200AEA171 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -27,15 +31,78 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C4411991D3F440C00783E14 /* Foundation.framework in Frameworks */,
+				5C4411971D3F440500783E14 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C44119A1D3F446A00783E14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C4411981D3F440B00783E14 /* Foundation.framework */,
+				5C4411961D3F440500783E14 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C44119B1D3F44AD00783E14 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5C44119C1D3F44C500783E14 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		5C44119D1D3F44D400783E14 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		5C44119E1D3F44FD00783E14 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Enums;
+			sourceTree = "<group>";
+		};
+		5C44119F1D3F453D00783E14 /* Tables */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tables;
+			sourceTree = "<group>";
+		};
+		5C4411A01D3F458200783E14 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5C903B841D3F3CF200AEA171 /* Main.storyboard */,
+				5C903B891D3F3CF200AEA171 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		5C4411A11D3F462F00783E14 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		5C903B741D3F3CF200AEA171 = {
 			isa = PBXGroup;
 			children = (
+				5C44119A1D3F446A00783E14 /* Frameworks */,
 				5C903B7F1D3F3CF200AEA171 /* Paqure */,
 				5C903B7E1D3F3CF200AEA171 /* Products */,
 			);
@@ -53,9 +120,14 @@
 			isa = PBXGroup;
 			children = (
 				5C903B801D3F3CF200AEA171 /* AppDelegate.swift */,
-				5C903B841D3F3CF200AEA171 /* Main.storyboard */,
+				5C44119D1D3F44D400783E14 /* Objects */,
+				5C44119F1D3F453D00783E14 /* Tables */,
+				5C44119C1D3F44C500783E14 /* Managers */,
+				5C4411A01D3F458200783E14 /* Views */,
+				5C44119B1D3F44AD00783E14 /* Controllers */,
+				5C44119E1D3F44FD00783E14 /* Enums */,
+				5C4411A11D3F462F00783E14 /* Extensions */,
 				5C903B871D3F3CF200AEA171 /* Assets.xcassets */,
-				5C903B891D3F3CF200AEA171 /* LaunchScreen.storyboard */,
 				5C903B8C1D3F3CF200AEA171 /* Info.plist */,
 			);
 			path = Paqure;
@@ -93,6 +165,7 @@
 				TargetAttributes = {
 					5C903B7C1D3F3CF200AEA171 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 25TP7657QT;
 					};
 				};
 			};
@@ -247,6 +320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Paqure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.digices.Paqure;
@@ -258,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Paqure/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.digices.Paqure;

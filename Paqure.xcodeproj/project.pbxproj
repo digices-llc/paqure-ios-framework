@@ -12,6 +12,7 @@
 		5C4411A31D3F470A00783E14 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4411A21D3F470A00783E14 /* App.swift */; };
 		5C4411A51D3F472500783E14 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4411A41D3F472500783E14 /* AppManager.swift */; };
 		5C4411A71D3F477100783E14 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4411A61D3F477100783E14 /* AppController.swift */; };
+		5C4411A91D3F48D800783E14 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4411A81D3F48D800783E14 /* Source.swift */; };
 		5C903B811D3F3CF200AEA171 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C903B801D3F3CF200AEA171 /* AppDelegate.swift */; };
 		5C903B861D3F3CF200AEA171 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C903B841D3F3CF200AEA171 /* Main.storyboard */; };
 		5C903B881D3F3CF200AEA171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C903B871D3F3CF200AEA171 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		5C4411A21D3F470A00783E14 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5C4411A41D3F472500783E14 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		5C4411A61D3F477100783E14 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		5C4411A81D3F48D800783E14 /* Source.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		5C903B7D1D3F3CF200AEA171 /* Paqure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paqure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C903B801D3F3CF200AEA171 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C903B851D3F3CF200AEA171 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		5C44119E1D3F44FD00783E14 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				5C4411A81D3F48D800783E14 /* Source.swift */,
 			);
 			name = Enums;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				5C4411A51D3F472500783E14 /* AppManager.swift in Sources */,
 				5C903B811D3F3CF200AEA171 /* AppDelegate.swift in Sources */,
 				5C4411A31D3F470A00783E14 /* App.swift in Sources */,
+				5C4411A91D3F48D800783E14 /* Source.swift in Sources */,
 				5C4411A71D3F477100783E14 /* AppController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

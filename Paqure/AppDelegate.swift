@@ -8,6 +8,9 @@
 
 import UIKit
 
+let defaults = NSUserDefaults.standardUserDefaults()
+let session = NSURLSession.sharedSession()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

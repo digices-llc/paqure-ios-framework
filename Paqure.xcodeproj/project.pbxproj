@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5C4411971D3F440500783E14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4411961D3F440500783E14 /* UIKit.framework */; };
 		5C4411991D3F440C00783E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4411981D3F440B00783E14 /* Foundation.framework */; };
+		5C4411A31D3F470A00783E14 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4411A21D3F470A00783E14 /* App.swift */; };
+		5C4411A51D3F472500783E14 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4411A41D3F472500783E14 /* AppManager.swift */; };
+		5C4411A71D3F477100783E14 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4411A61D3F477100783E14 /* AppController.swift */; };
 		5C903B811D3F3CF200AEA171 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C903B801D3F3CF200AEA171 /* AppDelegate.swift */; };
 		5C903B861D3F3CF200AEA171 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C903B841D3F3CF200AEA171 /* Main.storyboard */; };
 		5C903B881D3F3CF200AEA171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C903B871D3F3CF200AEA171 /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* Begin PBXFileReference section */
 		5C4411961D3F440500783E14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5C4411981D3F440B00783E14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5C4411A21D3F470A00783E14 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		5C4411A41D3F472500783E14 /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		5C4411A61D3F477100783E14 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
 		5C903B7D1D3F3CF200AEA171 /* Paqure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paqure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C903B801D3F3CF200AEA171 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C903B851D3F3CF200AEA171 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,7 @@
 		5C44119B1D3F44AD00783E14 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5C4411A61D3F477100783E14 /* AppController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -58,6 +65,7 @@
 		5C44119C1D3F44C500783E14 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				5C4411A41D3F472500783E14 /* AppManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -65,6 +73,7 @@
 		5C44119D1D3F44D400783E14 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				5C4411A21D3F470A00783E14 /* App.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -205,7 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C4411A51D3F472500783E14 /* AppManager.swift in Sources */,
 				5C903B811D3F3CF200AEA171 /* AppDelegate.swift in Sources */,
+				5C4411A31D3F470A00783E14 /* App.swift in Sources */,
+				5C4411A71D3F477100783E14 /* AppController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

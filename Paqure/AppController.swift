@@ -41,7 +41,8 @@ class AppController: UIViewController, AppManagerDelegate {
     }
     
     @IBAction func didTouchContinue(sender: AnyObject) {
-        // segue to application or login
+        // temporarily segue to device
+        self.performSegueWithIdentifier("showDevice", sender: self)
     }
 
     func appObjectSynced(success : Bool) {

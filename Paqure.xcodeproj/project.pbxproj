@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C0738A21D4105E800498367 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0738A11D4105E800498367 /* Device.swift */; };
+		5C0738A41D41064300498367 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0738A31D41064300498367 /* DeviceManager.swift */; };
+		5C0738A61D4106EF00498367 /* DeviceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C0738A51D4106EF00498367 /* DeviceController.swift */; };
 		5C4411971D3F440500783E14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4411961D3F440500783E14 /* UIKit.framework */; };
 		5C4411991D3F440C00783E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4411981D3F440B00783E14 /* Foundation.framework */; };
 		5C4411A31D3F470A00783E14 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4411A21D3F470A00783E14 /* App.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C0738A11D4105E800498367 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Device.swift; path = Device/Device.swift; sourceTree = "<group>"; };
+		5C0738A31D41064300498367 /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceManager.swift; path = Device/DeviceManager.swift; sourceTree = "<group>"; };
+		5C0738A51D4106EF00498367 /* DeviceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceController.swift; path = Device/DeviceController.swift; sourceTree = "<group>"; };
 		5C4411961D3F440500783E14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5C4411981D3F440B00783E14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5C4411A21D3F470A00783E14 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -60,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				5C4411A61D3F477100783E14 /* AppController.swift */,
+				5C0738A51D4106EF00498367 /* DeviceController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -67,6 +74,7 @@
 		5C44119C1D3F44C500783E14 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				5C0738A31D41064300498367 /* DeviceManager.swift */,
 				5C4411A41D3F472500783E14 /* AppManager.swift */,
 			);
 			name = Managers;
@@ -76,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				5C4411A21D3F470A00783E14 /* App.swift */,
+				5C0738A11D4105E800498367 /* Device.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -217,9 +226,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C0738A41D41064300498367 /* DeviceManager.swift in Sources */,
 				5C4411A51D3F472500783E14 /* AppManager.swift in Sources */,
 				5C903B811D3F3CF200AEA171 /* AppDelegate.swift in Sources */,
 				5C4411A31D3F470A00783E14 /* App.swift in Sources */,
+				5C0738A21D4105E800498367 /* Device.swift in Sources */,
+				5C0738A61D4106EF00498367 /* DeviceController.swift in Sources */,
 				5C4411A91D3F48D800783E14 /* Source.swift in Sources */,
 				5C4411A71D3F477100783E14 /* AppController.swift in Sources */,
 			);

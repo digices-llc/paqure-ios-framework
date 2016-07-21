@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DeviceManagerDelegate {
-    func deviceObjectSynced()
+    func deviceObjectSynced(success: Bool)
 }
 
 public class DeviceManager {
@@ -29,12 +29,14 @@ public class DeviceManager {
 
     private init() {
         
+        // attempt to replace default device with stored device
         if self.pullFromLocal() == true {
             self.source = Source.LOCAL
         } else {
             self.saveToLocal()
         }
         
+        // remote will detect if default condition exists
         self.pushToRemote()
         
     }
@@ -106,7 +108,9 @@ public class DeviceManager {
         NSOperationQueue.mainQueue().addOperationWithBlock({
             if success == true {
                 self.source = Source.SYNCED
-                self.controller?.deviceObjectSynced()
+                self.controller?.deviceObjectSynced(true)
+            } else {
+                self.controller?.deviceObjectSynced(false)
             }
         })
         

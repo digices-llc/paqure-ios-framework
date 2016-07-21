@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppController: UIViewController, AppManagerDelegate {
+class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate {
 
     @IBOutlet weak var idLabel: UILabel!
     
@@ -32,6 +32,9 @@ class AppController: UIViewController, AppManagerDelegate {
         let am = AppManager.sharedInstance
         am.setController(self)
         self.messageLabel.text = am.m
+        
+        let dm = DeviceManager.sharedInstance
+        dm.setController(self)
 
     }
 
@@ -46,7 +49,6 @@ class AppController: UIViewController, AppManagerDelegate {
     }
 
     func appObjectSynced(success : Bool) {
-        self.continueButton.userInteractionEnabled = true
         let am = AppManager.sharedInstance
         self.nameLabel.text = am.object.name as String
         self.versionLabel.text = "\(am.v) \(am.object.major).\(am.object.minor).\(am.object.fix)"
@@ -61,5 +63,17 @@ class AppController: UIViewController, AppManagerDelegate {
             self.messageLabel.text = am.e
         }
     }
+
+    func deviceObjectSynced(success: Bool) {
+        self.continueButton.userInteractionEnabled = true
+        let t : String
+        if success == true {
+            t = NSLocalizedString("device_synced", comment: "The device settings have been synchronized with the API")
+        } else {
+            t = NSLocalizedString("device_local", comment: "Using local device settings")
+        }
+        self.messageLabel.text = "\(self.messageLabel.text)\n\(t)"
+    }
     
 }
+

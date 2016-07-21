@@ -89,7 +89,7 @@ class DeviceController: UIViewController, DeviceManagerDelegate {
         }
     }
     
-    func deviceObjectSynced() {
+    func deviceObjectSynced(success: Bool) {
         self.updateUI()
         self.messageLabel.text = NSLocalizedString("saved", comment: "Record has been saved to database")
     }

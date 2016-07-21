@@ -10,10 +10,6 @@ import UIKit
 
 class App: NSObject, NSCoding {
     
-    // stubs for localization keys
-    let v = NSLocalizedString("version", comment: "The version release of the application")
-    let c = NSLocalizedString("copyright", comment: "Legal term for copyrighted work")
-    
     // object properties
     var id : Int
     var name: NSString
@@ -27,7 +23,7 @@ class App: NSObject, NSCoding {
     // initialize in default state
     override init() {
         self.id = 2
-        self.name = NSLocalizedString("app", comment: "Title representing the public name of the app")
+        self.name = NSLocalizedString("app_name", comment: "Title representing the public name of the app")
         self.major = 0
         self.minor = 0
         self.fix = 1

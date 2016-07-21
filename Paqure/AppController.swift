@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppController: UIViewController {
+class AppController: UIViewController, AppManagerDelegate {
 
     @IBOutlet weak var idLabel: UILabel!
     
@@ -24,8 +24,15 @@ class AppController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // set up title and state for button
+        self.continueButton.setTitle(NSLocalizedString("continue", comment: "Continue to next screen."), forState: .Normal)
+        self.continueButton.userInteractionEnabled = false
+        
+        let am = AppManager.sharedInstance
+        am.setController(self)
+        self.messageLabel.text = am.m
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,4 +44,21 @@ class AppController: UIViewController {
         // segue to application or login
     }
 
+    func appObjectSynced(success : Bool) {
+        self.continueButton.userInteractionEnabled = true
+        let am = AppManager.sharedInstance
+        self.nameLabel.text = am.object.name as String
+        self.versionLabel.text = "\(am.v) \(am.object.major).\(am.object.minor).\(am.object.fix)"
+        self.copyrightLabel.text = "\(am.c) \(am.object.copyright) \(am.object.company)"
+        if success == true {
+            if am.object.update == 1 {
+                self.messageLabel.text = am.u
+            } else {
+                self.messageLabel.text = am.r
+            }
+        } else {
+            self.messageLabel.text = am.e
+        }
+    }
+    
 }

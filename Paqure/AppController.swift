@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate {
+class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate, UserManagerDelegate {
 
     @IBOutlet weak var idLabel: UILabel!
     
@@ -29,12 +29,18 @@ class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate
         self.continueButton.setTitle(NSLocalizedString("continue", comment: "Continue to next screen."), forState: .Normal)
         self.continueButton.userInteractionEnabled = false
         
+        // set this to a space so we can safely force unwrap when appending
+        self.messageLabel.text = " "
+        
         let am = AppManager.sharedInstance
         am.setController(self)
         self.messageLabel.text = am.m
         
         let dm = DeviceManager.sharedInstance
         dm.setController(self)
+        
+        let um = UserManager.sharedInstance
+        um.setController(self)
 
     }
 
@@ -44,8 +50,8 @@ class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate
     }
     
     @IBAction func didTouchContinue(sender: AnyObject) {
-        // temporarily segue to device
-        self.performSegueWithIdentifier("showDevice", sender: self)
+        // segue to user to test
+        self.performSegueWithIdentifier("showUser", sender: self)
     }
 
     func appObjectSynced(success : Bool) {
@@ -65,14 +71,25 @@ class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate
     }
 
     func deviceObjectSynced(success: Bool) {
-        self.continueButton.userInteractionEnabled = true
         let t : String
         if success == true {
             t = NSLocalizedString("device_synced", comment: "The device settings have been synchronized with the API")
         } else {
             t = NSLocalizedString("device_local", comment: "Using local device settings")
         }
-        self.messageLabel.text = "\(self.messageLabel.text)\n\(t)"
+        self.messageLabel.text = "\(self.messageLabel.text!)\n\(t)"
+    }
+
+    func userObjectSynced(success: Bool) {
+        self.continueButton.userInteractionEnabled = true
+        let t : String
+        if success == true {
+            t = NSLocalizedString("user_synced", comment: "The user settings have been synchronized with the API")
+        } else {
+            t = NSLocalizedString("user_local", comment: "Using local user settings")
+        }
+        self.messageLabel.text = "\(self.messageLabel.text!)\n\(t)"
+
     }
     
 }

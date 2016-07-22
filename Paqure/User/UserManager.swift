@@ -1,5 +1,5 @@
 //
-//  DeviceManager.swift
+//  UserManager.swift
 //  Paqure
 //
 //  Created by Linguri Technology on 7/21/16.
@@ -8,50 +8,46 @@
 
 import UIKit
 
-protocol DeviceManagerDelegate {
-    func deviceObjectSynced(success: Bool)
+protocol UserManagerDelegate {
+    func userObjectSynced(success: Bool)
 }
 
-public class DeviceManager {
+public class UserManager {
     
-    public static var sharedInstance : DeviceManager = DeviceManager()
+    public static var sharedInstance : UserManager = UserManager()
     
-    var controller : DeviceManagerDelegate?
+    var controller : UserManagerDelegate?
     
-    var object : Device = Device()
-        
+    var object : User = User()
+    
+    // var collection : [User] = []
+    
     var source : Source = Source.DEFAULT
     
-    let url = NSURL(string: "https://www.digices.com/api/device.php")
-
-    // stubs for localization keys
-    let s = NSLocalizedString("device_settings", comment: "The preferences and settings for the device")
-    let u = NSLocalizedString("update", comment: "Update record in database")
-
+    let url = NSURL(string: "https://www.digices.com/api/user.php")
+    
     private init() {
         
-        // attempt to replace default device with stored device
         if self.pullFromLocal() == true {
             self.source = Source.LOCAL
         } else {
             self.saveToLocal()
         }
         
-        // remote will detect if default condition exists
         self.pushToRemote()
         
     }
     
-    func setController(controller: DeviceManagerDelegate) {
+    func setController(controller: UserManagerDelegate) {
         self.controller = controller
     }
     
     func pullFromLocal() -> Bool {
-        let storedObject = defaults.objectForKey("device")
+        let storedObject = defaults.objectForKey("user")
         if let retrievedObject = storedObject as? NSData {
             if let unarchivedObject = NSKeyedUnarchiver.unarchiveObjectWithData(retrievedObject) {
-                if let device = unarchivedObject as? Device {
-                    self.object = device
+                if let user = unarchivedObject as? User {
+                    self.object = user
                     return true
                 } else {
                     return false
@@ -77,17 +73,24 @@ public class DeviceManager {
         if let error = error {
             print(error.description)
         }
+        
+        if let response = response {
+            print("\(response)")
+        }
+        
         // create an optional tuple variable to return to
         var success : Bool = false
+        
+        
         
         if let data = data {
             do {
                 let parsedObject = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-                if let parsedDevice = parsedObject["device"] {
-                    if let device = parsedDevice as? NSDictionary {
-                        let remoteDevice = Device(dict: device)
-                        if remoteDevice.id > 0 {
-                            self.object = remoteDevice
+                if let parsedUser = parsedObject["user"] {
+                    if let user = parsedUser as? NSDictionary {
+                        let remoteUser = User(dict: user)
+                        if remoteUser.id > 0 {
+                            self.object = remoteUser
                             self.source = Source.REMOTE
                             self.saveToLocal()
                             self.source = Source.SYNCED
@@ -97,7 +100,7 @@ public class DeviceManager {
                         print("object did not evaluate")
                     }
                 } else {
-                    print("key \"device\" does not exist in data")
+                    print("key \"user\" does not exist in data")
                 }
             } catch {
                 print("serialization failed")
@@ -109,9 +112,9 @@ public class DeviceManager {
         NSOperationQueue.mainQueue().addOperationWithBlock({
             if success == true {
                 self.source = Source.SYNCED
-                self.controller?.deviceObjectSynced(true)
+                self.controller?.userObjectSynced(true)
             } else {
-                self.controller?.deviceObjectSynced(false)
+                self.controller?.userObjectSynced(false)
             }
         })
         
@@ -119,7 +122,7 @@ public class DeviceManager {
     
     func saveToLocal() {
         let data = NSKeyedArchiver.archivedDataWithRootObject(self.object)
-        defaults.setObject(data, forKey: "device")
+        defaults.setObject(data, forKey: "user")
         self.source = Source.LOCAL
     }
     

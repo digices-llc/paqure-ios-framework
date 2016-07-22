@@ -9,8 +9,10 @@
 import UIKit
 
 class DeviceController: UIViewController, DeviceManagerDelegate {
-    
-    @IBOutlet weak var labelLabel: UITextField!
+
+    let dm : DeviceManager = DeviceManager.sharedInstance
+
+    @IBOutlet weak var labelField: UITextField!
     
     @IBOutlet weak var idLabel: UILabel!
     
@@ -35,17 +37,16 @@ class DeviceController: UIViewController, DeviceManagerDelegate {
 
         self.updateButton.setTitle(NSLocalizedString("update", comment: "Update record in database"), forState: .Normal)
 
-        let dm = DeviceManager.sharedInstance
-        dm.setController(self)
+        self.dm.setController(self)
         self.updateUI()
     }
 
     func updateUI() {
         let dm = DeviceManager.sharedInstance
 
-        labelLabel.text = dm.object.label.stringByTrimmingCharactersInSet(.whitespaceAndNewlineCharacterSet())
-        if labelLabel.text?.characters.count == 0 {
-            labelLabel.placeholder = NSLocalizedString("device_name", comment: "User defined label to identify device")
+        labelField.text = dm.object.label as String
+        if labelField.text?.characters.count == 1 {
+            labelField.placeholder = NSLocalizedString("device_name", comment: "User defined label to identify device")
         }
 
         idLabel.text = "\(dm.object.id)"
@@ -82,8 +83,8 @@ class DeviceController: UIViewController, DeviceManagerDelegate {
     @IBAction func didTouchUpdateButton(sender: AnyObject) {
         let dm = DeviceManager.sharedInstance
         dm.setController(self)
-        if labelLabel.text?.characters.count > 0 {
-            dm.object.label = self.labelLabel.text! as NSString
+        if labelField.text?.characters.count > 0 {
+            dm.object.label = self.labelField.text! as NSString
             dm.saveToLocal()
             dm.pushToRemote()
         }

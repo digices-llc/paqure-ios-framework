@@ -21,7 +21,7 @@ class Device: NSObject {
     
     override init() {
         self.id = 2
-        self.label = ""
+        self.label = " "
         self.identifier = UIDevice.currentDevice().identifierForVendor!.UUIDString
         self.locale = NSLocale.currentLocale().localeIdentifier
         self.token = "4c9184f37cff01bcdc32dc486ec36961"

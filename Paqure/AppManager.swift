@@ -76,6 +76,7 @@ public class AppManager {
     
     func receiveReply(data : NSData?, response: NSURLResponse?, error: NSError?) {
         
+        // initialize parameter to pass to delegate
         var success : Bool = false
         
         if let data = data {

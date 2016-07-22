@@ -74,11 +74,7 @@ public class UserManager {
             print(error.description)
         }
         
-        if let response = response {
-            print("\(response)")
-        }
-        
-        // create an optional tuple variable to return to
+        // initialize parameter to pass to delegate
         var success : Bool = false
         
         

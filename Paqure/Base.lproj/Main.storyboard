@@ -83,6 +83,7 @@
                                         </state>
                                         <connections>
                                             <action selector="didTouchContinue:" destination="0Qj-4J-c7Z" eventType="touchUpInside" id="B12-MU-W5I"/>
+                                            <segue destination="KtW-jM-7Gl" kind="show" identifier="showSettings" id="FDs-28-BNT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -101,12 +102,11 @@
                         <outlet property="messageLabel" destination="IZP-4n-gQm" id="M39-HM-PQt"/>
                         <outlet property="nameLabel" destination="8X0-vO-VLU" id="Suo-1M-SlM"/>
                         <outlet property="versionLabel" destination="TMJ-oW-RJ2" id="Sit-4F-N3q"/>
-                        <segue destination="B3C-r6-aZ2" kind="show" identifier="showUser" id="o7S-n0-hO7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67n-gF-EuH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="181" y="469"/>
+            <point key="canvasLocation" x="-401" y="469"/>
         </scene>
         <!--device_settings-->
         <scene sceneID="xfZ-N0-eUr">
@@ -248,12 +248,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GTT-0i-KRy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847" y="469"/>
+            <point key="canvasLocation" x="969" y="469"/>
         </scene>
-        <!--User Controller-->
+        <!--Settings View Controller-->
+        <scene sceneID="I37-vs-Nzc">
+            <objects>
+                <tableViewController storyboardIdentifier="settings" useStoryboardIdentifierAsRestorationIdentifier="YES" id="KtW-jM-7Gl" customClass="SettingsViewController" customModule="Paqure" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aFe-Gz-FrZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="setting" id="D1E-fY-K0F">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D1E-fY-K0F" id="Gwf-l7-0y0">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KtW-jM-7Gl" id="X13-pO-yva"/>
+                            <outlet property="delegate" destination="KtW-jM-7Gl" id="jFk-kp-7dj"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="POj-8q-SOK" kind="show" identifier="showdevice" id="vto-mO-L4W"/>
+                        <segue destination="B3C-r6-aZ2" kind="show" identifier="showuser" id="6jB-WE-298"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yah-81-OQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="231" y="826"/>
+        </scene>
+        <!--user_settings-->
         <scene sceneID="Mj4-e5-mZv">
             <objects>
-                <viewController id="B3C-r6-aZ2" customClass="UserController" customModule="Paqure" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="user_settings" id="B3C-r6-aZ2" customClass="UserController" customModule="Paqure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mek-x4-cMT"/>
                         <viewControllerLayoutGuide type="bottom" id="eY0-9y-kGN"/>
@@ -395,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yfR-5G-NRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="847" y="1126"/>
+            <point key="canvasLocation" x="969" y="1131"/>
         </scene>
     </scenes>
 </document>

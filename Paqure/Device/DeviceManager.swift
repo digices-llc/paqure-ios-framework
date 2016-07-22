@@ -77,7 +77,7 @@ public class DeviceManager {
         if let error = error {
             print(error.description)
         }
-        // create an optional tuple variable to return to
+        // initialize parameter to pass to delegate
         var success : Bool = false
         
         if let data = data {

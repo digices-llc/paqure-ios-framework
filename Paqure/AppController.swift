@@ -51,7 +51,7 @@ class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate
     
     @IBAction func didTouchContinue(sender: AnyObject) {
         // segue to user to test
-        self.performSegueWithIdentifier("showUser", sender: self)
+        // self.performSegueWithIdentifier("showSettings", sender: self)
     }
 
     func appObjectSynced(success : Bool) {

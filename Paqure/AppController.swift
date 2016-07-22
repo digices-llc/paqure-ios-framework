@@ -8,8 +8,13 @@
 
 import UIKit
 
-class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate, UserManagerDelegate {
+class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate, UserManagerDelegate, LoginManagerDelegate {
 
+    let am : AppManager = AppManager.sharedInstance
+    let dm : DeviceManager = DeviceManager.sharedInstance
+    let um : UserManager = UserManager.sharedInstance
+    let lm : LoginManager = LoginManager.sharedInstance
+    
     @IBOutlet weak var idLabel: UILabel!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,25 +30,31 @@ class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // set up title and state for button
+        // TEMP set up title and state for temp button (this will eventually become automatic)
         self.continueButton.setTitle(NSLocalizedString("continue", comment: "Continue to next screen."), forState: .Normal)
+        
+        // TEMP disable the button until we're loaded
         self.continueButton.userInteractionEnabled = false
         
-        // set this to a space so we can safely force unwrap when appending
-        self.messageLabel.text = " "
+        // set ourselves as the delegate for the setup managers
+        self.am.setController(self)
+        self.dm.setController(self)
+        self.um.setController(self)
+        self.lm.setController(self)
         
-        let am = AppManager.sharedInstance
-        am.setController(self)
-        self.messageLabel.text = am.m
+        // set user interace to default elements
+        self.updateUI()
         
-        let dm = DeviceManager.sharedInstance
-        dm.setController(self)
-        
-        let um = UserManager.sharedInstance
-        um.setController(self)
-
     }
 
+    // updates interface elements in the AppView (startup screen)
+    func updateUI() {
+        self.messageLabel.text = self.am.m
+        self.nameLabel.text = self.am.object.name as String
+        self.versionLabel.text = "\(self.am.v) \(self.am.object.major).\(self.am.object.minor).\(self.am.object.fix)"
+        self.copyrightLabel.text = "\(self.am.c) \(self.am.object.copyright) \(self.am.object.company)"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,22 +62,19 @@ class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate
     
     @IBAction func didTouchContinue(sender: AnyObject) {
         // segue to user to test
+        // MOVE THIS TO AUTHENTICATION RESPONSE
         // self.performSegueWithIdentifier("showSettings", sender: self)
     }
 
     func appObjectSynced(success : Bool) {
-        let am = AppManager.sharedInstance
-        self.nameLabel.text = am.object.name as String
-        self.versionLabel.text = "\(am.v) \(am.object.major).\(am.object.minor).\(am.object.fix)"
-        self.copyrightLabel.text = "\(am.c) \(am.object.copyright) \(am.object.company)"
         if success == true {
-            if am.object.update == 1 {
-                self.messageLabel.text = am.u
+            if self.am.object.update == 1 {
+                self.messageLabel.text = self.am.u
             } else {
-                self.messageLabel.text = am.r
+                self.messageLabel.text = self.am.r
             }
         } else {
-            self.messageLabel.text = am.e
+            self.messageLabel.text = self.am.e
         }
     }
 
@@ -91,6 +99,29 @@ class AppController: UIViewController, AppManagerDelegate, DeviceManagerDelegate
         self.messageLabel.text = "\(self.messageLabel.text!)\n\(t)"
 
     }
+ 
+    func authenticationResponse(success: Bool) {
+        let lm = LoginManager.sharedInstance
+        self.messageLabel.text = "\(lm.object.message)"
+        if success == true {
+            // update user to the correct information
+            let um = UserManager.sharedInstance
+            um.object.username = lm.object.username
+            um.object.password = lm.object.password
+            um.saveToLocal()
+            
+            um.pushToRemote()
+            // segue to application
+            
+            if self.lm.object.authenticated == true {
+                self.performSegueWithIdentifier("showList", sender: self)
+            } else {
+                self.performSegueWithIdentifier("showLogin", sender: self)
+            }
+            
+        }
+    }
+    
     
 }
 

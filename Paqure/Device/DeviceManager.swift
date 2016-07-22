@@ -30,6 +30,9 @@ public class DeviceManager {
 
     private init() {
         
+        // DEBUG
+        print("DeviceManager.init()")
+        
         // attempt to replace default device with stored device
         if self.pullFromLocal() == true {
             self.source = Source.LOCAL
@@ -43,10 +46,16 @@ public class DeviceManager {
     }
     
     func setController(controller: DeviceManagerDelegate) {
+        // DEBUG
+        print("DeviceManager.setController()")
+        
         self.controller = controller
     }
     
     func pullFromLocal() -> Bool {
+        // DEBUG
+        print("DeviceManager.pullFromLocal()")
+        
         let storedObject = defaults.objectForKey("device")
         if let retrievedObject = storedObject as? NSData {
             if let unarchivedObject = NSKeyedUnarchiver.unarchiveObjectWithData(retrievedObject) {
@@ -65,6 +74,9 @@ public class DeviceManager {
     }
     
     func pushToRemote() {
+        // DEBUG
+        print("DeviceManager.pushToRemote()")
+        
         let request = NSMutableURLRequest(URL: self.url!)
         request.HTTPMethod = "POST"
         request.HTTPBody = self.object.encodedPostBody()
@@ -73,6 +85,8 @@ public class DeviceManager {
     }
     
     func receiveReply(data : NSData?, response: NSURLResponse?, error: NSError?) {
+        // DEBUG
+        print("DeviceManager.receiveReply()")
         
         if let error = error {
             print(error.description)
@@ -118,6 +132,9 @@ public class DeviceManager {
     }
     
     func saveToLocal() {
+        // DEBUG
+        print("DeviceManager.saveToLocal()")
+
         let data = NSKeyedArchiver.archivedDataWithRootObject(self.object)
         defaults.setObject(data, forKey: "device")
         self.source = Source.LOCAL

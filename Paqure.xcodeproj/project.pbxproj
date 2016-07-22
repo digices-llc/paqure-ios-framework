@@ -26,6 +26,9 @@
 		5C9FF6031D41CD1E008610E6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FF6021D41CD1E008610E6 /* SettingsViewController.swift */; };
 		5C9FF6071D41CED3008610E6 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FF6061D41CED3008610E6 /* Setting.swift */; };
 		5C9FF6091D41CF1C008610E6 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FF6081D41CF1C008610E6 /* SettingsManager.swift */; };
+		5C9FF60B1D4240B9008610E6 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FF60A1D4240B9008610E6 /* Login.swift */; };
+		5C9FF60D1D424188008610E6 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FF60C1D424188008610E6 /* LoginController.swift */; };
+		5C9FF6111D4241D3008610E6 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9FF6101D4241D3008610E6 /* LoginManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		5C9FF6021D41CD1E008610E6 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Settings/SettingsViewController.swift; sourceTree = "<group>"; };
 		5C9FF6061D41CED3008610E6 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = Settings/Setting.swift; sourceTree = "<group>"; };
 		5C9FF6081D41CF1C008610E6 /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		5C9FF60A1D4240B9008610E6 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Login.swift; path = Login/Login.swift; sourceTree = "<group>"; };
+		5C9FF60C1D424188008610E6 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = Login/LoginController.swift; sourceTree = "<group>"; };
+		5C9FF6101D4241D3008610E6 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginManager.swift; path = Login/LoginManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 				5C9FF6021D41CD1E008610E6 /* SettingsViewController.swift */,
 				5C9FF6001D41B36E008610E6 /* UserController.swift */,
 				5C0738A51D4106EF00498367 /* DeviceController.swift */,
+				5C9FF60C1D424188008610E6 /* LoginController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -89,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				5C0738A31D41064300498367 /* DeviceManager.swift */,
+				5C9FF6101D4241D3008610E6 /* LoginManager.swift */,
 				5C9FF6081D41CF1C008610E6 /* SettingsManager.swift */,
 				5C9FF5FE1D41B2A1008610E6 /* UserManager.swift */,
 				5C4411A41D3F472500783E14 /* AppManager.swift */,
@@ -100,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				5C4411A21D3F470A00783E14 /* App.swift */,
+				5C9FF60A1D4240B9008610E6 /* Login.swift */,
 				5C0738A11D4105E800498367 /* Device.swift */,
 				5C9FF6061D41CED3008610E6 /* Setting.swift */,
 				5C9FF5FC1D41B1BD008610E6 /* User.swift */,
@@ -249,13 +258,16 @@
 				5C903B811D3F3CF200AEA171 /* AppDelegate.swift in Sources */,
 				5C9FF6011D41B36E008610E6 /* UserController.swift in Sources */,
 				5C9FF6071D41CED3008610E6 /* Setting.swift in Sources */,
+				5C9FF6111D4241D3008610E6 /* LoginManager.swift in Sources */,
 				5C4411A31D3F470A00783E14 /* App.swift in Sources */,
+				5C9FF60B1D4240B9008610E6 /* Login.swift in Sources */,
 				5C0738A21D4105E800498367 /* Device.swift in Sources */,
 				5C9FF5FD1D41B1BD008610E6 /* User.swift in Sources */,
 				5C0738A61D4106EF00498367 /* DeviceController.swift in Sources */,
 				5C4411A91D3F48D800783E14 /* Source.swift in Sources */,
 				5C9FF6091D41CF1C008610E6 /* SettingsManager.swift in Sources */,
 				5C9FF5FF1D41B2A1008610E6 /* UserManager.swift in Sources */,
+				5C9FF60D1D424188008610E6 /* LoginController.swift in Sources */,
 				5C4411A71D3F477100783E14 /* AppController.swift in Sources */,
 				5C9FF6031D41CD1E008610E6 /* SettingsViewController.swift in Sources */,
 			);
